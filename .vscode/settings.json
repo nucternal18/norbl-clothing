@@ -1,6 +1,10 @@
 {
     "git.ignoreLimitWarning": true,
     "cSpell.words": [
-        "assests"
+        "Tkmls",
+        "assests",
+        "firebaseapp",
+        "firestore",
+        "norbl"
     ]
 }

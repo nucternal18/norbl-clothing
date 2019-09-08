@@ -50,6 +50,7 @@ class SignIn extends Component {
             <FormInput
                 type='password'
                 name='password'
+                autoComplete='password'
                 value={this.state.password}
                 handleChange={this.handleChange}
                 label='password'

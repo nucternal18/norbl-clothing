@@ -5,6 +5,7 @@
         "assests",
         "firebaseapp",
         "firestore",
+        "middlewares",
         "norbl"
     ]
 }

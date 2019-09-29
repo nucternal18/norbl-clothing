@@ -9,9 +9,10 @@ import CheckoutPage from './pages/checkout/checkout.page'
 
 import Header from './components/header/header.component';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.page';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument} from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
+
 import './App.css';
 
 
@@ -22,7 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     
-    const { setCurrentUser } = this.props
+    const { setCurrentUser} = this.props
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       //Checking UserAuth exist
       if (userAuth) {
@@ -34,9 +35,10 @@ class App extends Component {
               ...snapShot.data()
             })
         });
-      } else {
-        setCurrentUser(userAuth);
       }
+        
+      setCurrentUser(userAuth);
+
     })
   }
 
@@ -66,7 +68,7 @@ class App extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 })
 
 const mapDispatchToProps = dispatch => ({

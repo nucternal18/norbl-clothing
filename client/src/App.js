@@ -10,10 +10,12 @@ import CheckoutPage from './pages/checkout/checkout.page'
 import Header from './components/header/header.component';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.page'; // eslint-disable-next-line
 
+import { GlobalStyle } from './global.styles';
+
 import { selectCurrentUser } from './redux/user/user.selector';
 import { checkUserSession } from './redux/user/user.actions';
 
-import './App.css';
+
 
 
 const App = ({checkUserSession, currentUser }) => {
@@ -24,6 +26,7 @@ const App = ({checkUserSession, currentUser }) => {
 
     return (
       <div>
+        <GlobalStyle />
         <Header />
         <Switch>
           <Route exact path='/' component={Homepage} />

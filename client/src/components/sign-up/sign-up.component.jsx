@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
@@ -6,7 +7,8 @@ import CustomButton from '../custom-button/custom-button.component';
 
 import { signUpStart } from '../../redux/user/user.actions';
 
-import './sign-up.style.scss'
+import styled from 'styled-components';
+
 
 const SignUp = ({signUpStart}) => {
     
@@ -36,8 +38,8 @@ const SignUp = ({signUpStart}) => {
     }
 
         return (
-            <div className='sign-up'>
-                <h2 className="title">Don't have an account</h2>
+            <SignUpContainer>
+                <SignUpTitle>Don't have an account</SignUpTitle>
                 <span>Sign up with your email and password</span>
 
                 <form className="sign-up-form" onSubmit={handleSubmit}>
@@ -78,9 +80,19 @@ const SignUp = ({signUpStart}) => {
                     <CustomButton type='submit'>SIGN UP</CustomButton>
                 </form>
                 
-            </div>
+            </SignUpContainer>
         );
 }
+
+export const SignUpContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+`;
+
+export const SignUpTitle = styled.h2`
+    margin: 10px 0;
+`;
 
 const mapDispatchToProps = dispatch => ({
     signUpStart: userCredentials => dispatch(signUpStart(userCredentials))

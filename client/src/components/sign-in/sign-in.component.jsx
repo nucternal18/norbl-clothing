@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
+import styled from 'styled-components';
+
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
 
 import { googleSignInStart, emailSignInStart } from '../../redux/user/user.actions';
 
-import './sign-in.styles.scss';
 
 const SignIn = ({ googleSignInStart, emailSignInStart }) => {
     const [userCredentials, setCredentials] = useState({
@@ -28,8 +29,8 @@ const SignIn = ({ googleSignInStart, emailSignInStart }) => {
     };
 
     return (
-        <div className='sign-in'>
-        <h2>Already have an account</h2>
+        <SignInContainer>
+        <SignInTitle>Already have an account</SignInTitle>
         <span>Sign in with your email and password</span>
 
         <form onSubmit={handleSubmit}>
@@ -50,7 +51,7 @@ const SignIn = ({ googleSignInStart, emailSignInStart }) => {
             label='password'
             required
             />
-            <div className='buttons'>
+            <ButtonsBarContainer>
             <CustomButton type='submit'> Sign In </CustomButton>
             <CustomButton
                 type='button'
@@ -59,11 +60,26 @@ const SignIn = ({ googleSignInStart, emailSignInStart }) => {
             >
                 {''}Sign In with Google{''}
             </CustomButton>
-            </div>
+            </ButtonsBarContainer>
         </form>
-        </div>
+        </SignInContainer>
     );
 };
+
+const SignInContainer = styled.div`
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+`;
+
+const SignInTitle = styled.h2`
+    margin: 10px 0;
+`;
+
+const ButtonsBarContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
 
 const mapDispatchToProps = dispatch => ({
     googleSignInStart: () => dispatch(googleSignInStart()),

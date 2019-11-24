@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import styled, { css } from 'styled-components';
-
-import { connect } from 'react-redux'
+// @ts-ignore
 import logo from '../../assests/logo.png';
+import { connect } from 'react-redux'
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDrop from '../cart-dropdown/cart-dropdown.component';
 import { selectCartHidden } from '../../redux/cart/cart.selector';
@@ -61,11 +61,22 @@ const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
+
+    @media screen and (max-width: 800px) {
+        height: 60px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
 `
 const LogoContainer = styled(Link)`
     height: 50px;
     width: 50px;
     padding: 5px 25px 25px 25px;
+
+    @media screen and (max-width: 800px) {
+        width: 50px;
+        padding: 0;
+    }
 `
 const Logo = styled.img`
     height: 50px;
@@ -77,6 +88,10 @@ const OptionsContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    @media screen and (max-width: 800px) {
+        width: 80%;
+    }
 `
 const OptionContainerStyles = css`
     padding: 10px 15px;
